@@ -9,10 +9,10 @@ end
 tabl = union({12,34},{34,56})
 
 --print(tabl)
----[[
+---[[--buil
 for v,k in pairs(tabl) do
 	print(v,k)
-	print("hulaquan")
+	print("local")
 end
 
 --]]
