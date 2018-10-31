@@ -9,10 +9,17 @@ end
 tabl = union({12,34},{34,56})
 
 --print(tabl)
+<<<<<<< Updated upstream
 ---[[--buil
 for v,k in pairs(tabl) do
 	print(v,k)
 	print("local")
+=======
+---[[//local save
+for v,k in pairs(tabl) do
+	print(v,k)
+	print("huaruan")
+>>>>>>> Stashed changes
 end
 
 --]]

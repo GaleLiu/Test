@@ -1,4 +1,4 @@
-<<<<<<< Updated upstream
+﻿<<<<<<< Updated upstream
 his
 this is my code.
 this is ling code.
@@ -7,3 +7,4 @@ she like me
 but she is stupi
 but l love her
 >>>>>>> Stashed changes
+傻逼全改
