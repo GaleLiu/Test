@@ -1,0 +1,73 @@
+压测：用本机模拟器，夜神不行
+mysql 经纬度距离：#经纬度差---> lat1 - lat2 ===== lat1*pi()/180 - lat2*pi()/180
+	round(2 * asin(sqrt(pow(sin((lat1-lat2)/2),2) + cos(lat1) * cos(lat2) * pow(sin(lng1 - lng2),2))) * 6378.138 * 1000)
+
+redis命令：D:\redis\redis-server.exe D:\redis\sentinel.conf --sentinel
+
+xshell命令：!mysql
+	mysql -uroot -p caogeng
+	Caogeng!55@
+	上次目录：cd /data/upload/
+	日志目录：cd /data/caogeng/logs/
+	cd 日期    即可
+	grep []里面的内容
+	动态打印：tail -f ...
+	缓存目录：cd /usr/local/redis/
+		hgetall ...
+	tomcat日志：cd /usr/local/tomcat/logs/
+
+	ssh root@120.25.250.28 -p 4096
+	Caogeng!55
+	1.	在工程中替换配置文件
+
+	2.	在eclipse 中Export caogeng工程到本地，保存为 caogengv1.x.x.war
+
+	3.	上传war包到服务器上：Linux:scp -P 4096 -r caogengv1.2.0.war root@120.25.250.28:/data/wwwroot/history/
+		Windows:rz -bye
+
+	4.	解压war包到当前目录 cd /data/wwwroot/default 
+		jar -xvf ../history/caogengv1.2.43.war 
+	5.	重启tomcat： ps -ef | grep tomcat8_8080 | grep -v grep | awk '{print $2}' | xargs kill -9 && /usr/local/tomcat8_8080/bin/catalina.sh start
+
+		tail -f /usr/local/tomcat/logs/catalina.out 
+		tail -100 /usr/local/tomcat/logs/catalina.out
+
+	vi ....（文件名）  修改内容；wq 保存编辑；重启tomcat
+
+	6、删除   rm -rf *
+
+测试服：mysql：root
+	       Caogeng!55@
+
+
+1. 进入项目所在目录
+	
+	
+2. 开始进行打包
+	测试环境：/data/maven/apache-maven-3.3.9/bin/mvn clean package -Dmaven.test.skip=true -Ptest
+
+		正式环境：/data/maven/apache-maven-3.3.9/bin/mvn clean package -Dmaven.test.skip=true -Pprod
+	
+	
+3. 上传服务端，上传到测试服/data/history/caogeng/{发布项目目录} 目录中
+	
+	类unix：
+		scp -P 4096 -r {项目版本} root@120.76.158.94:/data/history/caogeng/{发布项目目录}/{发布项目版本}
+	
+	windows:
+		进入目录/data/history/caogeng/{发布项目目录}/{发布项目版本} 后使用以下命令
+		rz -bye
+	
+4. 进入项目发布目录
+	
+		cd /data/wwwroot/caogeng/{发布项目目录}
+	
+5. 解压war包到目录：
+		/data/wwwroot/caogeng/{发布项目目录}
+	
+		jar -xvf /data/history/caogeng/{发布项目目录}/{发布项目版本}
+	
+6. 重启tomcat
+	ps -ef | grep tomcat8_8800 | grep -v grep | awk '{print $2}' | xargs kill -9 && /usr/local/tomcat8_8800/bin/catalina.sh start
+
+
