@@ -9,9 +9,10 @@ end
 tabl = union({12,34},{34,56})
 
 --print(tabl)
---[[
+---[[
 for v,k in pairs(tabl) do
 	print(v,k)
+	print("hulaquan")
 end
 
 --]]
@@ -151,7 +152,7 @@ print(Set.tostring(s3))
 --[[
 
 local mt = {}
---¶¨Òåmt.__addÔª·½·¨£¨ÆäÊµ¾ÍÊÇÔª±íÖĞÒ»¸öÌØÊâµÄË÷ÒıÖµ£©Îª½«Á½¸ö±íµÄÔªËØºÏ²¢ºó·µ»ØÒ»¸öĞÂ±í
+--å®šä¹‰mt.__addå…ƒæ–¹æ³•ï¼ˆå…¶å®å°±æ˜¯å…ƒè¡¨ä¸­ä¸€ä¸ªç‰¹æ®Šçš„ç´¢å¼•å€¼ï¼‰ä¸ºå°†ä¸¤ä¸ªè¡¨çš„å…ƒç´ åˆå¹¶åè¿”å›ä¸€ä¸ªæ–°è¡¨
 mt.__add = function(t1,t2)
     local temp = {}
     for _,v in pairs(t1) do
@@ -164,11 +165,11 @@ mt.__add = function(t1,t2)
 end
 local t1 = {1,2,3}
 local t2 = {2}
---ÉèÖÃt1µÄÔª±íÎªmt
+--è®¾ç½®t1çš„å…ƒè¡¨ä¸ºmt
 setmetatable(t1,mt)
 
 local t3 = t1 + t2
---Êä³öt3
+--è¾“å‡ºt3
 local st = "{"
 for _,v in pairs(t3) do
     st = st..v..", "
