@@ -35,10 +35,10 @@ for _,k in pairs(M.i) do
 	print(M.i[k])
 end
 --]]
---[[
+---[[//local save
 function value(t)
 	local i = 0
-	--print("local i ="..i)
+	print("lqlocal i ="..i)
 	return function() i =i +1;return t[i] end
 end
 
