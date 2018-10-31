@@ -1,73 +1,73 @@
-Ñ¹²â£ºÓÃ±¾»úÄ£ÄâÆ÷£¬Ò¹Éñ²»ĞĞ
-mysql ¾­Î³¶È¾àÀë£º#¾­Î³¶È²î---> lat1 - lat2 ===== lat1*pi()/180 - lat2*pi()/180
+å‹æµ‹ï¼šç”¨æœ¬æœºæ¨¡æ‹Ÿå™¨ï¼Œå¤œç¥ä¸è¡Œ??
+mysql ç»çº¬åº¦è·ç¦»ï¼š#ç»çº¬åº¦å·®---> lat1 - lat2 ===== lat1*pi()/180 - lat2*pi()/180
 	round(2 * asin(sqrt(pow(sin((lat1-lat2)/2),2) + cos(lat1) * cos(lat2) * pow(sin(lng1 - lng2),2))) * 6378.138 * 1000)
 
-redisÃüÁî£ºD:\redis\redis-server.exe D:\redis\sentinel.conf --sentinel
+rediså‘½ä»¤ï¼šD:\redis\redis-server.exe D:\redis\sentinel.conf --sentinel
 
-xshellÃüÁî£º!mysql
+xshellå‘½ä»¤ï¼š!mysql
 	mysql -uroot -p caogeng
 	Caogeng!55@
-	ÉÏ´ÎÄ¿Â¼£ºcd /data/upload/
-	ÈÕÖ¾Ä¿Â¼£ºcd /data/caogeng/logs/
-	cd ÈÕÆÚ    ¼´¿É
-	grep []ÀïÃæµÄÄÚÈİ
-	¶¯Ì¬´òÓ¡£ºtail -f ...
-	»º´æÄ¿Â¼£ºcd /usr/local/redis/
+	ä¸Šæ¬¡ç›®å½•ï¼šcd /data/upload/
+	æ—¥å¿—ç›®å½•ï¼šcd /data/caogeng/logs/
+	cd æ—¥æœŸ    å³å¯
+	grep []é‡Œé¢çš„å†…å®¹
+	åŠ¨æ€æ‰“å°ï¼štail -f ...
+	ç¼“å­˜ç›®å½•ï¼šcd /usr/local/redis/
 		hgetall ...
-	tomcatÈÕÖ¾£ºcd /usr/local/tomcat/logs/
+	tomcatæ—¥å¿—ï¼šcd /usr/local/tomcat/logs/
 
 	ssh root@120.25.250.28 -p 4096
 	Caogeng!55
-	1.	ÔÚ¹¤³ÌÖĞÌæ»»ÅäÖÃÎÄ¼ş
+	1.	åœ¨å·¥ç¨‹ä¸­æ›¿æ¢é…ç½®æ–‡ä»¶
 
-	2.	ÔÚeclipse ÖĞExport caogeng¹¤³Ìµ½±¾µØ£¬±£´æÎª caogengv1.x.x.war
+	2.	åœ¨eclipse ä¸­Export caogengå·¥ç¨‹åˆ°æœ¬åœ°ï¼Œä¿å­˜ä¸º caogengv1.x.x.war
 
-	3.	ÉÏ´«war°üµ½·şÎñÆ÷ÉÏ£ºLinux:scp -P 4096 -r caogengv1.2.0.war root@120.25.250.28:/data/wwwroot/history/
+	3.	ä¸Šä¼ waråŒ…åˆ°æœåŠ¡å™¨ä¸Šï¼šLinux:scp -P 4096 -r caogengv1.2.0.war root@120.25.250.28:/data/wwwroot/history/
 		Windows:rz -bye
 
-	4.	½âÑ¹war°üµ½µ±Ç°Ä¿Â¼ cd /data/wwwroot/default 
+	4.	è§£å‹waråŒ…åˆ°å½“å‰ç›®å½• cd /data/wwwroot/default 
 		jar -xvf ../history/caogengv1.2.43.war 
-	5.	ÖØÆôtomcat£º ps -ef | grep tomcat8_8080 | grep -v grep | awk '{print $2}' | xargs kill -9 && /usr/local/tomcat8_8080/bin/catalina.sh start
+	5.	é‡å¯tomcatï¼š ps -ef | grep tomcat8_8080 | grep -v grep | awk '{print $2}' | xargs kill -9 && /usr/local/tomcat8_8080/bin/catalina.sh start
 
 		tail -f /usr/local/tomcat/logs/catalina.out 
 		tail -100 /usr/local/tomcat/logs/catalina.out
 
-	vi ....£¨ÎÄ¼şÃû£©  ĞŞ¸ÄÄÚÈİ£»wq ±£´æ±à¼­£»ÖØÆôtomcat
+	vi ....ï¼ˆæ–‡ä»¶åï¼‰  ä¿®æ”¹å†…å®¹ï¼›wq ä¿å­˜ç¼–è¾‘ï¼›é‡å¯tomcat
 
-	6¡¢É¾³ı   rm -rf *
+	6ã€åˆ é™¤   rm -rf *
 
-²âÊÔ·ş£ºmysql£ºroot
+æµ‹è¯•æœï¼šmysqlï¼šroot
 	       Caogeng!55@
 
 
-1. ½øÈëÏîÄ¿ËùÔÚÄ¿Â¼
+1. è¿›å…¥é¡¹ç›®æ‰€åœ¨ç›®å½•
 	
 	
-2. ¿ªÊ¼½øĞĞ´ò°ü
-	²âÊÔ»·¾³£º/data/maven/apache-maven-3.3.9/bin/mvn clean package -Dmaven.test.skip=true -Ptest
+2. å¼€å§‹è¿›è¡Œæ‰“åŒ…
+	æµ‹è¯•ç¯å¢ƒï¼š/data/maven/apache-maven-3.3.9/bin/mvn clean package -Dmaven.test.skip=true -Ptest
 
-		ÕıÊ½»·¾³£º/data/maven/apache-maven-3.3.9/bin/mvn clean package -Dmaven.test.skip=true -Pprod
+		æ­£å¼ç¯å¢ƒï¼š/data/maven/apache-maven-3.3.9/bin/mvn clean package -Dmaven.test.skip=true -Pprod
 	
 	
-3. ÉÏ´«·şÎñ¶Ë£¬ÉÏ´«µ½²âÊÔ·ş/data/history/caogeng/{·¢²¼ÏîÄ¿Ä¿Â¼} Ä¿Â¼ÖĞ
+3. ä¸Šä¼ æœåŠ¡ç«¯ï¼Œä¸Šä¼ åˆ°æµ‹è¯•æœ/data/history/caogeng/{å‘å¸ƒé¡¹ç›®ç›®å½•} ç›®å½•ä¸­
 	
-	Ààunix£º
-		scp -P 4096 -r {ÏîÄ¿°æ±¾} root@120.76.158.94:/data/history/caogeng/{·¢²¼ÏîÄ¿Ä¿Â¼}/{·¢²¼ÏîÄ¿°æ±¾}
+	ç±»unixï¼š
+		scp -P 4096 -r {é¡¹ç›®ç‰ˆæœ¬} root@120.76.158.94:/data/history/caogeng/{å‘å¸ƒé¡¹ç›®ç›®å½•}/{å‘å¸ƒé¡¹ç›®ç‰ˆæœ¬}
 	
 	windows:
-		½øÈëÄ¿Â¼/data/history/caogeng/{·¢²¼ÏîÄ¿Ä¿Â¼}/{·¢²¼ÏîÄ¿°æ±¾} ºóÊ¹ÓÃÒÔÏÂÃüÁî
+		è¿›å…¥ç›®å½•/data/history/caogeng/{å‘å¸ƒé¡¹ç›®ç›®å½•}/{å‘å¸ƒé¡¹ç›®ç‰ˆæœ¬} åä½¿ç”¨ä»¥ä¸‹å‘½ä»¤
 		rz -bye
 	
-4. ½øÈëÏîÄ¿·¢²¼Ä¿Â¼
+4. è¿›å…¥é¡¹ç›®å‘å¸ƒç›®å½•
 	
-		cd /data/wwwroot/caogeng/{·¢²¼ÏîÄ¿Ä¿Â¼}
+		cd /data/wwwroot/caogeng/{å‘å¸ƒé¡¹ç›®ç›®å½•}
 	
-5. ½âÑ¹war°üµ½Ä¿Â¼£º
-		/data/wwwroot/caogeng/{·¢²¼ÏîÄ¿Ä¿Â¼}
+5. è§£å‹waråŒ…åˆ°ç›®å½•ï¼š
+		/data/wwwroot/caogeng/{å‘å¸ƒé¡¹ç›®ç›®å½•}
 	
-		jar -xvf /data/history/caogeng/{·¢²¼ÏîÄ¿Ä¿Â¼}/{·¢²¼ÏîÄ¿°æ±¾}
+		jar -xvf /data/history/caogeng/{å‘å¸ƒé¡¹ç›®ç›®å½•}/{å‘å¸ƒé¡¹ç›®ç‰ˆæœ¬}
 	
-6. ÖØÆôtomcat
+6. é‡å¯tomcat
 	ps -ef | grep tomcat8_8800 | grep -v grep | awk '{print $2}' | xargs kill -9 && /usr/local/tomcat8_8800/bin/catalina.sh start
 
 
